@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="../../css/bootstrap-responsive.min.css">
         <link rel="stylesheet" href="../../css/bootstrap-responsive.css">
         <meta name="description" content="Cadastro Cliente" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         
 </head>
 <body>
@@ -81,7 +81,7 @@ endif;
         $cliente->setTelCelular($telefone_cel);
         $cliente->setTelResi($telefone_res);
         
-    if($usuario->update($id)){
+    if($cliente->update($id)){
         echo "Atualizado com sucesso!";
 }
     endif;
@@ -90,7 +90,7 @@ endif;
 <?php
         if(isset($_GET['acao']) && $_GET['acao'] == 'deletar'):
             $id = (int)$_GET['id'];
-        if($usuario->delete($id)){
+        if($cliente->delete($id)){
             echo "Deletado com sucesso!";
 }
         endif;

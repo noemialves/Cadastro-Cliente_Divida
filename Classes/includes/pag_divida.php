@@ -6,14 +6,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>Cadastro Divida</title>
+    <meta charset="utf-8">
+    <title>Cadastro Divida</title>
         <meta name="description" content="Cadastro Divida" />
         <link rel="stylesheet" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" href="../../css/bootstrap.css">
         <link rel="stylesheet" href="../../css/bootstrap-responsive.min.css">
         <link rel="stylesheet" href="../../css/bootstrap-responsive.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 <div class="container">
@@ -28,13 +28,13 @@
         $divida->setDescricao($descricao);
         $divida->setTotalDivida($total_divida);
         $divida->setPagMinimo($pag_minimo);
-# Insert
+#Insert
     if($divida->insert()){
         echo "Inserido com sucesso!";
     }
     endif;
 ?>
-    <header class="masthead">
+<header class="masthead">
     <h1 class="muted">Cadastro Divida</h1>
         <nav class="navbar">
             <div class="navbar-inner">
@@ -57,7 +57,7 @@
         $divida->setDescricao($descricao);
         $divida->setTotalDivida($total_divida);
         $divida->setPagMinimo($pag_minimo);
-    if($usuario->update($id)){
+    if($divida->update($id)){
         echo "Atualizado com sucesso!";
 }
     endif;
@@ -80,41 +80,56 @@
 ?>
 
 <form method="post" action="">
-    <div class="input-prepend">
-        <span class="add-on"><i class="icon-user"></i></span>
-        <input type="text" name="descricao" value="<?php echo $resultado->descricao; ?>" placeholder="Descrição da Divida:" />
+        <div class="input-group">
+            <div class="input-group-prepend">
+            <span class="input-group-text">Descrição da divida:</span>
+        </div>
+            <textarea class="form-control" aria-label="Com textarea"></textarea>
     </div>
-    <div class="input-prepend">
-        <span class="add-on"><i class="icon-user"></i></span>
-        <input type="text" name="valor_total" value="<?php echo $resultado->total_divida; ?>" placeholder="Valor total:" />
-    </div>
-    <div class="input-prepend">
-        <span class="add-on"><i class="icon-user"></i></span>
-        <input type="text" name="pag_minimo" value="<?php echo $resultado->pag_minimo; ?>" placeholder="Pagamento Minimo:" />
-    </div>
-        <input type="hidden" name="id" value="<?php echo $resultado->id; ?>"/>
 <br />
-        <input type="submit" name="atualizar" class="btn btn-primary" value="Atualizar dados">					
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Valor Total da Divida:</span>
+        </div>
+            <input type="text" class="form-control" aria-label="Exemplo do tamanho do input" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Valor Minimo de Pagamento da Divida:</span>
+        </div>
+            <input type="text" class="form-control" aria-label="Exemplo do tamanho do input" aria-describedby="inputGroup-sizing-default">
+        </div>
+<br />
+            <input type="hidden" name="id" value="<?php echo $resultado->id; ?>"/>
+<br />
+            <input type="submit" name="atualizar_div" class="btn btn-secondary"value="Atualizar dados">                  
 </form>
 
-<? php }else{ ?>
-    <form method="post" action="">
-        <div class="input-prepend">
-            <span class="add-on"><i class="icon-user"></i></span>
-            <input type="text" name="descricao" placeholder="Descrição:" />
+<?php }else{ ?>
+    <form method="post" action="cadastro_div">
+        <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Descrição da divida:</span>
+        </div>
+        <textarea class="form-control" aria-label="Com textarea"></textarea>
+    </div>
+<br />
+        <div class="input-group mb-3">
+         <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Valor Total da Divida:</span>
+        </div>
+            <input type="text" class="form-control" aria-label="Exemplo do tamanho do input" aria-describedby="inputGroup-sizing-default">
         </div>
 <br />
-        <div class="input-prepend">
-            <span class="add-on"><i class="icon-user"></i></span>
-            <input type="text" name="valor_total" placeholder="Valor total:" />
+        <div class="input-group mb-3">
+         <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Valor Minimo de Pagamento da Divida:</span>
+        </div>
+            <input type="text" class="form-control" aria-label="Exemplo do tamanho do input" aria-describedby="inputGroup-sizing-default">
         </div>
 <br />
-        <div class="input-prepend">
-            <span class="add-on"><i class="icon-user"></i></span>
-            <input type="text" name="pag_minimo" placeholder="Pagamento Minimo:" />
-        </div>
-<br />
-            <input type="submit" name="cadastrar" class="btn btn-primary" value="Cadastrar">					
+            <input type="submit" name="cadastro_div" class="btn btn-primary" value="Cadastrar" />                    
     </form>
 
 <?php } ?>
@@ -136,8 +151,8 @@
         <td><? php echo $value->total_divida; ?></td>
         <td><? php echo $value->pag_minimo; ?></td>
         <td>
-        <?php echo "<a href='pag_divida.php?acao=editar&id=" . $value->id . "'>Editar</a>"; ?>
-        <?php echo "<a href='pag_divida.php?acao=deletar&id=" . $value->id . "' onclick='return confirm(\"Deseja realmente deletar?\")'>Deletar</a>"; ?>
+        <?php echo "<a href='Divida.php?acao=editar&id=" . $value->id . "'>Editar</a>"; ?>
+        <?php echo "<a href='Divida.php?acao=deletar&id=" . $value->id . "' onclick='return confirm(\"Deseja realmente deletar?\")'>Deletar</a>"; ?>
         </td>
     </tr>
 </tbody>
@@ -146,6 +161,7 @@
 </table>
 
 </div>
+    
     <script src="../../js/jQuery.js"></script>
     <script src="../../js/bootstrap.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
