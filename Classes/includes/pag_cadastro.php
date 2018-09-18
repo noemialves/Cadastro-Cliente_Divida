@@ -5,7 +5,7 @@
      require_once '../Clientes.php';
 ?>
 <!DOCTYPE HTML>
-<html land="pt-BR">
+<html>
 <head>
 	<meta charset="utf-8">
 	<title>Cadastro Cliente</title>

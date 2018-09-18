@@ -100,4 +100,4 @@ class Clientes extends Crud {
     }
    
 }
- include 'includes/pag_cadastro.php';
+ //include 'includes/pag_cadastro.php';

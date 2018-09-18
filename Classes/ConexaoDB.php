@@ -8,7 +8,7 @@ class ConexaoDB {
             try{
                 self::$instance = new PDO('mysql:host='. HOST. '; dbname='. BASE, USER, PASS);
                 self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                self::$instance->setAtribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+                self::$instance->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
                 
             } catch (PDOException $e){
                     echo $e->getMessage();
