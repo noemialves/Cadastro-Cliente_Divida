@@ -10,6 +10,9 @@
 	<meta charset="utf-8">
 	<title>Cadastro Cliente</title>
 	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/bootstrap.css">
+        <link rel="stylesheet" href="../../css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="../../css/bootstrap-responsive.css">
         <meta name="description" content="Cadastro Cliente" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         

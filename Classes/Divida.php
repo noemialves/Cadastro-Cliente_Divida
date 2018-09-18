@@ -36,13 +36,12 @@ class Divida extends Crud {
                 VALUES (:descricao, :total_divida, :pag_minimo)";
         $stmt=DB::prepare($sql);
         $stmt->bindParam(':descricao', $this->descricao);
-        $stmt->bindParam(':nascimento', $this->total_divida);
-        $stmt->bindParam(':sexo', $this->pag_minimo);
+        $stmt->bindParam(':total_divida', $this->total_divida);
+        $stmt->bindParam(':pag_minimo', $this->pag_minimo);
         return $stmt->execute();
     }
     public function update($id) {
-        $sql = "UPDATE $this->tabela SET descricao=:descricao, total_divida=:total_divida, pag_minimo=:pag_minimo
-                 WHERE id=:id";
+        $sql = "UPDATE $this->tabela SET descricao=:descricao, total_divida=:total_divida, pag_minimo=:pag_minimo WHERE id=:id";
         $stmt = DB::prepare($sql);
         $stmt->bindParam(':descricao', $this->descricao);
         $stmt->bindParam(':total_divida', $this->total_divida);

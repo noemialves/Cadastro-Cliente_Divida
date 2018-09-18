@@ -8,8 +8,11 @@
 <head>
 	<meta charset="utf-8">
 	<title>Cadastro Divida</title>
-        <meta name="description" content="PHP OO" />
+        <meta name="description" content="Cadastro Divida" />
         <link rel="stylesheet" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/bootstrap.css">
+        <link rel="stylesheet" href="../../css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="../../css/bootstrap-responsive.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -77,69 +80,69 @@
 ?>
 
 <form method="post" action="">
-<div class="input-prepend">
-<span class="add-on"><i class="icon-user"></i></span>
-<input type="text" name="nome" value="<?php echo $resultado->descricao; ?>" placeholder="Descrição da Divida:" />
-</div>
-<div class="input-prepend">
-<span class="add-on"><i class="icon-envelope"></i></span>
-<input type="text" name="email" value="<?php echo $resultado->total_divida; ?>" placeholder="Valor total:" />
-</div>
-<div class="input-prepend">
-<span class="add-on"><i class="icon-user"></i></span>
-<input type="text" name="nome" value="<?php echo $resultado->pag_minimo; ?>" placeholder="Pagamento Minimo:" />
-</div>
-<input type="hidden" name="id" value="<?php echo $resultado->id; ?>">
+    <div class="input-prepend">
+        <span class="add-on"><i class="icon-user"></i></span>
+        <input type="text" name="descricao" value="<?php echo $resultado->descricao; ?>" placeholder="Descrição da Divida:" />
+    </div>
+    <div class="input-prepend">
+        <span class="add-on"><i class="icon-user"></i></span>
+        <input type="text" name="valor_total" value="<?php echo $resultado->total_divida; ?>" placeholder="Valor total:" />
+    </div>
+    <div class="input-prepend">
+        <span class="add-on"><i class="icon-user"></i></span>
+        <input type="text" name="pag_minimo" value="<?php echo $resultado->pag_minimo; ?>" placeholder="Pagamento Minimo:" />
+    </div>
+        <input type="hidden" name="id" value="<?php echo $resultado->id; ?>"/>
 <br />
-<input type="submit" name="atualizar" class="btn btn-primary" value="Atualizar dados">					
+        <input type="submit" name="atualizar" class="btn btn-primary" value="Atualizar dados">					
 </form>
 
 <? php }else{ ?>
-<form method="post" action="">
-<div class="input-prepend">
-<span class="add-on"><i class="icon-user"></i></span>
-<input type="text" name="nome" placeholder="Descrição:" />
-</div>
+    <form method="post" action="">
+        <div class="input-prepend">
+            <span class="add-on"><i class="icon-user"></i></span>
+            <input type="text" name="descricao" placeholder="Descrição:" />
+        </div>
 <br />
-<div class="input-prepend">
-<span class="add-on"><i class="icon-envelope"></i></span>
-<input type="text" name="email" placeholder="Valor total:" />
-</div>
+        <div class="input-prepend">
+            <span class="add-on"><i class="icon-user"></i></span>
+            <input type="text" name="valor_total" placeholder="Valor total:" />
+        </div>
 <br />
-<div class="input-prepend">
-<span class="add-on"><i class="icon-envelope"></i></span>
-<input type="text" name="email" placeholder="Pagamento Minimo:" />
-</div>
+        <div class="input-prepend">
+            <span class="add-on"><i class="icon-user"></i></span>
+            <input type="text" name="pag_minimo" placeholder="Pagamento Minimo:" />
+        </div>
 <br />
-<input type="submit" name="cadastrar" class="btn btn-primary" value="Cadastrar">					
-</form>
+            <input type="submit" name="cadastrar" class="btn btn-primary" value="Cadastrar">					
+    </form>
 
 <?php } ?>
 
 <table class="table table-hover">
-<thead>
-<tr>
-<th>#</th>
-<th>Descrição</th>
-<th>Valor total da divida:</th>
-<th>Valor para pagamento minimo:</th>
-</tr>
-</thead>
-<?php foreach($divida->findAll() as $key => $value): ?>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Descrição</th>
+                <th>Valor total da divida:</th>
+                <th>Valor para pagamento minimo:</th>
+            </tr>
+        </thead>
+    <?php foreach($divida->findAll() as $key => $value): ?>
 <tbody>
-<tr>
-<td><? php echo $value->id; ?></td>
-<td><? php echo $value->descricao; ?></td>
-<td><? php echo $value->total_divida; ?></td>
-<td><? php echo $value->pag_minimo; ?></td>
-<td>
-<?php echo "<a href='pag_divida.php?acao=editar&id=" . $value->id . "'>Editar</a>"; ?>
-<?php echo "<a href='pag_divida.php?acao=deletar&id=" . $value->id . "' onclick='return confirm(\"Deseja realmente deletar?\")'>Deletar</a>"; ?>
-</td>
-</tr>
+    <tr>
+        <td><? php echo $value->id; ?></td>
+        <td><? php echo $value->descricao; ?></td>
+        <td><? php echo $value->total_divida; ?></td>
+        <td><? php echo $value->pag_minimo; ?></td>
+        <td>
+        <?php echo "<a href='pag_divida.php?acao=editar&id=" . $value->id . "'>Editar</a>"; ?>
+        <?php echo "<a href='pag_divida.php?acao=deletar&id=" . $value->id . "' onclick='return confirm(\"Deseja realmente deletar?\")'>Deletar</a>"; ?>
+        </td>
+    </tr>
 </tbody>
 
-<?php endforeach; ?>
+        <?php endforeach; ?>
 </table>
 
 </div>
