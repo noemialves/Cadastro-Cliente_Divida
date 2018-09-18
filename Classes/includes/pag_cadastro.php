@@ -102,25 +102,25 @@ endif;
             $resultado = $cliente->find($id);
 ?>
 
-<form method="post" action="">
+<form method="post" action="atualizar">
     <div class="input-prepend">
         <span class="add-on"><i class="icon-user"></i></span>
             <input type="text" name="nome" value="<? php echo $resultado->nome; ?>" placeholder="Nome:" />
     </div>
     <br />
     <div class="input-prepend">
-        <span class="add-on"><i class="icon-envelope"></i></span>
-            <input type="text" name="email" value="<? php echo $resultado->nascimento; ?>" placeholder="Data de Nascimento:" />
+        <span class="add-on"><i class="icon-user"></i></span>
+            <input type="text" name="nascimento" value="<? php echo $resultado->nascimento; ?>" placeholder="Data de Nascimento:" />
     </div>
     <br />
     <div class="input-prepend">
-        <span class="add-on"><i class="icon-envelope"></i></span>
-            <input type="text" name="email" value="<? php echo $resultado->cpf; ?>" placeholder="CPF:" />
+        <span class="add-on"><i class="icon-user"></i></span>
+            <input type="text" name="cpf" value="<? php echo $resultado->cpf; ?>" placeholder="CPF:" />
     </div>
     <br />
     <div class="input-prepend">
-        <span class="add-on"><i class="icon-envelope"></i></span>
-            <input type="text" name="email" value="<? php echo $resultado->rg; ?>" placeholder="RG:" />
+        <span class="add-on"><i class="icon-user"></i></span>
+            <input type="text" name="rg" value="<? php echo $resultado->rg; ?>" placeholder="RG:" />
     </div>
     <div class="input-prepend">
         <span class="add-on"><i class="icon-envelope"></i></span>
@@ -128,13 +128,13 @@ endif;
     </div>
     <br />
     <div class="input-prepend">
-        <span class="add-on"><i class="icon-envelope"></i></span>
-            <input type="text" name="email" value="<? php echo $resultado->telefone_cel; ?>" placeholder="Telefone Celular:" />
+        <span class="add-on"><i class="icon-user"></i></span>
+            <input type="text" name="telefone_cel" value="<? php echo $resultado->telefone_cel; ?>" placeholder="Telefone Celular:" />
     </div>
     <br />
     <div class="input-prepend">
-        <span class="add-on"><i class="icon-envelope"></i></span>
-            <input type="text" name="email" value="<? php echo $resultado->telefone_res; ?>" placeholder="Telefone Residencial:" />
+        <span class="add-on"><i class="icon-user"></i></span>
+            <input type="text" name="telefone_res" value="<? php echo $resultado->telefone_res; ?>" placeholder="Telefone Residencial:" />
     </div>
     <br />
     <input type="hidden" name="id" value="<? php echo $resultado->id; ?>">
@@ -143,31 +143,31 @@ endif;
 </form>
 
 <? php }else{ ?>
-<form method="post" action="">
+<form method="post" action="cadastro">
     <div class="input-prepend">
         <span class="add-on"><i class="icon-user"></i></span>
             <input type="text" name="nome" placeholder="Nome:" />
     </div>
 <br />
     <div class="input-prepend">
-        <span class="add-on"><i class="icon-envelope"></i></span>
+        <span class="add-on"><i class="icon-user"></i></span>
             <input type="text" name="nascimento" placeholder="Nascimento:" />
     </div>
 <br />
     <div class="input-prepend">
-        <span class="add-on"><i class="icon-envelope"></i></span>
+        <span class="add-on"><i class="icon-user"></i></span>
         <p>Sexo:</p>
         <input type="radio" name="feminino" value="Feminino" disabled="disabled" />
         <input type="radio" name="masculino" value="Masculino" disabled="disabled" />
     </div>
 <br />
     <div class="input-prepend">
-        <span class="add-on"><i class="icon-envelope"></i></span>
+        <span class="add-on"><i class="icon-user"></i></span>
             <input type="text" name="cpf" placeholder="CPF:" />
     </div>
 <br />
     <div class="input-prepend">
-        <span class="add-on"><i class="icon-envelope"></i></span>
+        <span class="add-on"><i class="icon-user"></i></span>
             <input type="text" name="rg" placeholder="RG:" />
     </div>
 <br />
@@ -177,12 +177,12 @@ endif;
     </div>
 <br />
     <div class="input-prepend">
-        <span class="add-on"><i class="icon-envelope"></i></span>
+        <span class="add-on"><i class="icon-user"></i></span>
             <input type="text" name="telefone_cel" placeholder="Telefone Celular:" />
     </div>
 <br />
     <div class="input-prepend">
-        <span class="add-on"><i class="icon-envelope"></i></span>
+        <span class="add-on"><i class="icon-user"></i></span>
             <input type="text" name="telefone_res" placeholder="Telefone Residencial:" />
     </div>
 <br />
@@ -230,9 +230,8 @@ endif;
 </table>
 
 </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
-    <script src="js/bootstrap.min.js"></script> 
-    <script src="js/bootstrap.js"></script>
-    <script src="js/jQuery.js"></script>
+    <script src="../../js/jQuery.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
 </body>
 </html>
