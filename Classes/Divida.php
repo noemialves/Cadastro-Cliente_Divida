@@ -4,10 +4,10 @@
  *
  * @author Noemi
  */
-require_once 'Crud.php';
+require_once 'Crud-divida.php';
 
-class Divida extends Crud {
-    protected $tabela ='divida';
+class Divida extends Crud-divida{
+    //protected $tabela ='divida';
     private $descricao;
     private $total_divida;
     private $pag_minimo;
@@ -52,4 +52,4 @@ class Divida extends Crud {
     }
    
 }
-// include 'includes/pag_divida.php';
+

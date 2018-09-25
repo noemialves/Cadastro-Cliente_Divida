@@ -4,10 +4,10 @@
  *
  * @author Noemi
  */
-require_once 'Crud.php';
+require_once 'Crud-cliente.php';
 
-class Clientes extends Crud {
-    protected $tabela ='cadastro';
+class Clientes extends Crud-cliente {
+    protected $cliente;
     private $nome;
     private $nascimento;
     private $sexo;
@@ -38,7 +38,7 @@ class Clientes extends Crud {
      public function setCpf($cpf){
         $this->cpf=$cpf;
     }
-    public function geCpf(){
+    public function getCpf(){
         return $this->cpf;
     }
      public function setRG($rg){
@@ -69,7 +69,7 @@ class Clientes extends Crud {
     
         
     public function insert() {
-        $sql="INSERT INTO $this->tabela(nome, nascimento, sexo, cpf, rg, email, telefone_cel, telefone_res)
+        $sql="INSERT INTO $this->cliente(nome, nascimento, sexo, cpf, rg, email, telefone_cel, telefone_res)
                 VALUES (:nome, :nascimento, :sexo, :cpf, :rg, :email, :telefone_cel, :telefone_res)";
         $stmt=DB::prepare($sql);
         $stmt->bindParam(':nome', $this->nome);
@@ -83,7 +83,7 @@ class Clientes extends Crud {
         return $stmt->execute();
     }
     public function update($id) {
-        $sql = "UPDATE $this->tabela SET nome=:nome, nascimento=:nascimento, sexo=:sexo, cpf=:cpf, rg=:rg, email=:email,
+        $sql = "UPDATE $this->cliente SET nome=:nome, nascimento=:nascimento, sexo=:sexo, cpf=:cpf, rg=:rg, email=:email,
                 telefone_cel=:telefone_cel, telefone_res=:telefone_res WHERE id=:id";
         $stmt = DB::prepare($sql);
         $stmt->bindParam(':nome', $this->nome);
@@ -100,4 +100,4 @@ class Clientes extends Crud {
     }
    
 }
- //include 'includes/pag_cadastro.php';
+
